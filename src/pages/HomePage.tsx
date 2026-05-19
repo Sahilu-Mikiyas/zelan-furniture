@@ -1,17 +1,18 @@
 import { Helmet } from 'react-helmet-async'
 import HeroSection from '@/components/home/HeroSection'
-import CategoryGrid from '@/components/home/CategoryGrid'
 import FeaturedCollections from '@/components/home/FeaturedCollections'
-import OurStory from '@/components/home/OurStory'
+import ComingSoon from '@/components/home/ComingSoon'
+import ProductShowcase from '@/components/home/ProductShowcase'
 import VisionMission from '@/components/home/VisionMission'
 import CoreValues from '@/components/home/CoreValues'
+import OurStory from '@/components/home/OurStory'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import OrderProcess from '@/components/home/OrderProcess'
-import ComingSoon from '@/components/home/ComingSoon'
 import StyleQuizCTA from '@/components/home/StyleQuizCTA'
 import BundleBuilderCTA from '@/components/home/BundleBuilderCTA'
+import FeaturedPhotos from '@/components/home/FeaturedPhotos'
+import BranchesMap from '@/components/home/BranchesMap'
 import Testimonials from '@/components/home/Testimonials'
-import BranchStrip from '@/components/home/BranchStrip'
 import Partners from '@/components/home/Partners'
 
 export default function HomePage() {
@@ -22,18 +23,19 @@ export default function HomePage() {
         <meta name="description" content="Premium furniture collections for every room. 4 showrooms across Addis Ababa with fast delivery, custom orders, and expert design guidance." />
       </Helmet>
       <HeroSection />
-      <CategoryGrid />
       <FeaturedCollections />
-      <OurStory />
+      <ComingSoon />
+      <ProductShowcase />
       <VisionMission />
       <CoreValues />
-      <WhyChooseUs />
+      <OurStory />
       <OrderProcess />
+      <WhyChooseUs />
       <StyleQuizCTA />
       <BundleBuilderCTA />
-      <ComingSoon />
+      <FeaturedPhotos />
+      <BranchesMap />
       <Testimonials />
-      <BranchStrip />
       <Partners />
     </>
   )
