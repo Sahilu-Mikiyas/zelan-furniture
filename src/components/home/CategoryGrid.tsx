@@ -21,7 +21,7 @@ export default function CategoryGrid() {
           {categories.map((cat, i) => (
             <Link
               key={cat.id}
-              href={`/products?category=${cat.id}`}
+              to={`/products?category=${cat.id}`}
               className={`group bg-gradient-to-br ${cat.color} border ${cat.border} rounded-2xl p-6 text-center hover:shadow-lg transition-all hover:-translate-y-1 ${i === 0 ? 'md:col-span-1' : ''}`}
             >
               <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{cat.icon}</div>

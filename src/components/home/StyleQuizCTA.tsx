@@ -20,7 +20,7 @@ export default function StyleQuizCTA() {
           Take our 2-minute style quiz and we'll curate a personalized furniture collection just for you.
         </p>
         <Link
-          href="/quiz"
+          to="/quiz"
           className="inline-block bg-white text-amber-800 font-bold px-8 py-3.5 rounded-full hover:bg-amber-50 transition-colors shadow-lg"
         >
           Find My Style →

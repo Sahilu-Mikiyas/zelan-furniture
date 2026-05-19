@@ -26,7 +26,7 @@ export default function ProductDetailPage() {
       if (!data) { navigate('/products'); return }
       setProduct(data)
       setWishlisted(JSON.parse(localStorage.getItem('zelan_wishlist') || '[]').includes(data.id))
-      supabase.rpc('increment_view', { product_id: data.id }).catch(() => {})
+      try { await supabase.rpc('increment_view', { product_id: data.id }) } catch (_) {}
       const { data: rel } = await supabase.from('products').select('id,name,slug,price_tier,status,images,is_featured,style_tag')
         .eq('category_id', data.category_id).neq('id', data.id).limit(4)
       setRelated(rel || [])

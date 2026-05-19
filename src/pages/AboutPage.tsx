@@ -1,4 +1,4 @@
-import { ShieldCheck, Truck, Palette, Headphones, MapPin, Phone } from 'lucide-react'
+import { ShieldCheck, Truck, Palette, Headphones } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const values = [
@@ -82,10 +82,10 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold text-stone-900 mb-3">Ready to Transform Your Space?</h2>
         <p className="text-stone-500 mb-6">Visit any of our 4 showrooms or browse our full collection online.</p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <Link href="/products" className="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-full transition-colors">
+          <Link to="/products" className="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-full transition-colors">
             Browse Products
           </Link>
-          <Link href="/contact" className="border-2 border-stone-300 hover:border-amber-700 text-stone-700 hover:text-amber-700 font-semibold px-6 py-3 rounded-full transition-colors">
+          <Link to="/contact" className="border-2 border-stone-300 hover:border-amber-700 text-stone-700 hover:text-amber-700 font-semibold px-6 py-3 rounded-full transition-colors">
             Contact Us
           </Link>
         </div>

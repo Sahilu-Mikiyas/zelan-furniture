@@ -1,5 +1,3 @@
-'use client'
-
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
@@ -38,13 +36,13 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap gap-3 mb-10">
               <Link
-                href="/products"
+                to="/products"
                 className="flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-full transition-colors"
               >
                 Shop Now <ArrowRight size={16} />
               </Link>
               <Link
-                href="/quiz"
+                to="/quiz"
                 className="flex items-center gap-2 border-2 border-stone-300 hover:border-amber-700 hover:text-amber-700 text-stone-700 font-semibold px-6 py-3 rounded-full transition-colors"
               >
                 Find Your Style
@@ -56,7 +54,7 @@ export default function HeroSection() {
               {categoryPills.map(pill => (
                 <Link
                   key={pill.href}
-                  href={pill.href}
+                  to={pill.href}
                   className="bg-white/70 hover:bg-white text-stone-600 hover:text-amber-700 text-sm px-4 py-1.5 rounded-full border border-stone-200 hover:border-amber-300 transition-all"
                 >
                   {pill.label}

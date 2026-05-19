@@ -64,7 +64,7 @@ export default function FeaturedCollections() {
                   ))}
                 </ul>
                 <Link
-                  href={col.href}
+                  to={col.href}
                   className="flex items-center gap-2 text-amber-700 hover:text-amber-800 font-semibold text-sm group-hover:gap-3 transition-all"
                 >
                   Shop Now <ArrowRight size={15} />

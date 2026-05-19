@@ -59,7 +59,7 @@ export default function WishlistPage() {
             <Heart size={48} className="text-stone-200 mx-auto mb-4" />
             <h2 className="text-xl font-bold text-stone-900 mb-2">Your wishlist is empty</h2>
             <p className="text-stone-500 mb-6">Save items you love while browsing our collection.</p>
-            <Link href="/products" className="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-full transition-colors">
+            <Link to="/products" className="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-full transition-colors">
               Browse Products
             </Link>
           </div>

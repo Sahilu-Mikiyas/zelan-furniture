@@ -1,5 +1,3 @@
-'use client'
-
 import { Link } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 import { useState, useEffect } from 'react'
@@ -43,7 +41,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const status = statusConfig[product.status] || statusConfig.in_stock
 
   return (
-    <Link href={`/products/${product.slug}`} className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-0.5">
+    <Link to={`/products/${product.slug}`} className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-0.5">
       {/* Image */}
       <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
         {product.images?.[0] ? (

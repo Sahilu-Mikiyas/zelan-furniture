@@ -18,7 +18,7 @@ export default function BundleBuilderCTA() {
             </div>
           </div>
           <Link
-            href="/bundle"
+            to="/bundle"
             className="shrink-0 bg-amber-700 hover:bg-amber-600 text-white font-bold px-8 py-3.5 rounded-full transition-colors whitespace-nowrap"
           >
             Start Building →

@@ -1,7 +1,7 @@
 
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react'
+import { Phone, MapPin, Clock, Send } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
 const branches = [
