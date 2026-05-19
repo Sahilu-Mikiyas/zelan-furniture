@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-60 w-full">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
