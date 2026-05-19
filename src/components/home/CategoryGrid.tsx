@@ -6,35 +6,30 @@ const categories = [
   {
     id: 'bedroom',
     label: 'Bedroom',
-    label_am: 'መኝታ ቤት',
     desc: 'Beds, headboards, dressers',
     image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80',
   },
   {
     id: 'living-room',
     label: 'Living Room',
-    label_am: 'መቀመጫ ክፍል',
     desc: 'Sofas, chairs, tables',
     image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80',
   },
   {
     id: 'dining',
     label: 'Dining',
-    label_am: 'መመገቢያ',
     desc: 'Tables, chairs, buffets',
     image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80',
   },
   {
     id: 'office',
     label: 'Office',
-    label_am: 'ቢሮ',
     desc: 'Desks, chairs, storage',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
   },
   {
     id: 'storage',
     label: 'Storage',
-    label_am: 'ማከማቻ',
     desc: 'Wardrobes, cabinets',
     image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80',
   },
@@ -87,9 +82,6 @@ export default function CategoryGrid() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent" />
                 <div className="absolute inset-0 p-5 flex flex-col justify-end text-white">
-                  <p className="text-xs text-amber-300 font-medium mb-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {cat.label_am}
-                  </p>
                   <h3 className="font-bold text-xl mb-1">{cat.label}</h3>
                   <p className="text-xs text-stone-200 mb-3 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-10 transition-all">
                     {cat.desc}

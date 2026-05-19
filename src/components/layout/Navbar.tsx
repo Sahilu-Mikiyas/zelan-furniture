@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Heart, Search, Globe } from 'lucide-react'
+import { Menu, X, Heart, Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { to: '/', label: 'Home', label_am: 'መነሻ' },
-  { to: '/products', label: 'Products', label_am: 'ምርቶች' },
-  { to: '/gallery', label: 'Gallery', label_am: 'ጋለሪ' },
-  { to: '/about', label: 'About', label_am: 'ስለ እኛ' },
-  { to: '/contact', label: 'Contact', label_am: 'ያግኙን' },
+  { to: '/', label: 'Home' },
+  { to: '/products', label: 'Products' },
+  { to: '/gallery', label: 'Gallery' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [lang, setLang] = useState<'en' | 'am'>('en')
   const [wishlistCount, setWishlistCount] = useState(0)
   const location = useLocation()
 
@@ -25,8 +24,6 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const saved = localStorage.getItem('zelan_lang') as 'en' | 'am' | null
-    if (saved) setLang(saved)
     const updateCount = () => {
       const wl = JSON.parse(localStorage.getItem('zelan_wishlist') || '[]')
       setWishlistCount(wl.length)
@@ -37,12 +34,6 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => { setOpen(false) }, [location.pathname])
-
-  const toggleLang = () => {
-    const next = lang === 'en' ? 'am' : 'en'
-    setLang(next)
-    localStorage.setItem('zelan_lang', next)
-  }
 
   return (
     <header className={cn('fixed top-0 w-full z-50 transition-all duration-300', scrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm')}>
@@ -58,15 +49,12 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
               <Link key={link.to} to={link.to} className={cn('text-sm font-medium transition-colors hover:text-amber-700', location.pathname === link.to ? 'text-amber-700' : 'text-stone-600')}>
-                {lang === 'am' ? link.label_am : link.label}
+                {link.label}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-3">
-            <button onClick={toggleLang} className="hidden md:flex items-center gap-1 text-xs text-stone-500 hover:text-amber-700 transition-colors">
-              <Globe size={15} /><span>{lang === 'en' ? 'አማ' : 'EN'}</span>
-            </button>
             <Link to="/products" className="text-stone-600 hover:text-amber-700 transition-colors"><Search size={20} /></Link>
             <Link to="/wishlist" className="relative text-stone-600 hover:text-amber-700 transition-colors">
               <Heart size={20} />
@@ -90,14 +78,11 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-stone-100 px-4 py-4 space-y-3">
           {navLinks.map(link => (
             <Link key={link.to} to={link.to} className={cn('block text-sm font-medium py-1', location.pathname === link.to ? 'text-amber-700' : 'text-stone-600')}>
-              {lang === 'am' ? link.label_am : link.label}
+              {link.label}
             </Link>
           ))}
-          <div className="flex items-center justify-between pt-2 border-t border-stone-100">
-            <button onClick={toggleLang} className="flex items-center gap-1 text-xs text-stone-500">
-              <Globe size={14} /><span>{lang === 'en' ? 'Switch to አማርኛ' : 'Switch to English'}</span>
-            </button>
-            <a href="https://wa.me/251984272727" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 bg-green-600 text-white text-xs px-3 py-1.5 rounded-full">WhatsApp</a>
+          <div className="pt-2 border-t border-stone-100">
+            <a href="https://wa.me/251984272727" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-green-600 text-white text-xs px-3 py-1.5 rounded-full">WhatsApp</a>
           </div>
         </div>
       )}

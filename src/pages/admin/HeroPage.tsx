@@ -7,7 +7,7 @@ import { Upload, Check } from 'lucide-react'
 export default function HeroBannerPage() {
   const [banners, setBanners] = useState<any[]>([])
   const [saving, setSaving] = useState(false)
-  const [form, setForm] = useState({ heading: '', heading_am: '', subheading: '', subheading_am: '', cta_text: 'Shop Now', image_url: '' })
+  const [form, setForm] = useState({ heading: '', subheading: '', cta_text: 'Shop Now', image_url: '' })
 
   const fetch = async () => {
     const { data } = await supabase.from('hero_banners').select('*').order('created_at', { ascending: false })
@@ -31,7 +31,7 @@ export default function HeroBannerPage() {
     e.preventDefault()
     setSaving(true)
     await supabase.from('hero_banners').insert([{ ...form, is_active: false }])
-    setForm({ heading: '', heading_am: '', subheading: '', subheading_am: '', cta_text: 'Shop Now', image_url: '' })
+    setForm({ heading: '', subheading: '', cta_text: 'Shop Now', image_url: '' })
     fetch()
     setSaving(false)
   }
@@ -60,10 +60,6 @@ export default function HeroBannerPage() {
               <div>
                 <label className="block text-xs font-semibold text-stone-500 uppercase mb-1">Heading (EN)</label>
                 <input required value={form.heading} onChange={e => set('heading', e.target.value)} className="w-full border border-stone-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-stone-500 uppercase mb-1">Heading (አማ)</label>
-                <input value={form.heading_am} onChange={e => set('heading_am', e.target.value)} className="w-full border border-stone-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-stone-500 uppercase mb-1">Subheading (EN)</label>

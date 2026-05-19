@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Heart, HeadphonesIcon, Award, Sofa, Shield, Compass, Palette, Sparkle } from 'lucide-react'
+import { Heart, HeadphonesIcon, Award, Sofa, Shield, Compass, Palette, Sparkles } from 'lucide-react'
 
 const values = [
   { icon: Heart, label: 'Comfort', color: 'from-rose-200 to-rose-100' },
@@ -9,7 +9,7 @@ const values = [
   { icon: Shield, label: 'Reliability', color: 'from-stone-200 to-stone-100' },
   { icon: Compass, label: 'Design Guidance', color: 'from-amber-200 to-amber-100' },
   { icon: Palette, label: 'Style', color: 'from-rose-200 to-rose-100' },
-  { icon: Sparkle, label: 'Excellence', color: 'from-yellow-200 to-yellow-100' },
+  { icon: Sparkles, label: 'Excellence', color: 'from-yellow-200 to-yellow-100' },
 ]
 
 export default function CoreValues() {

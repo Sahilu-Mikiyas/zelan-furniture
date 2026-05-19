@@ -15,7 +15,7 @@ export default function ProductFormPage() {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
-    name: '', name_am: '', description: '', description_am: '',
+    name: '', description: '',
     category_id: '', price_tier: 2, material: '', style_tag: '',
     status: 'in_stock', branch_available: [] as string[],
     is_featured: false, images: [] as string[],
@@ -72,10 +72,6 @@ export default function ProductFormPage() {
             <div>
               <label className="block text-xs font-semibold text-stone-500 uppercase mb-1.5">Name (English) *</label>
               <input required value={form.name} onChange={e => set('name', e.target.value)} className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-stone-500 uppercase mb-1.5">Name (Amharic)</label>
-              <input value={form.name_am} onChange={e => set('name_am', e.target.value)} className="w-full border border-stone-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
             </div>
           </div>
           <div>
