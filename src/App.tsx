@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import { supabase } from '@/lib/supabase'
 
 // Layout
@@ -16,6 +17,7 @@ import ContactPage from '@/pages/ContactPage'
 import WishlistPage from '@/pages/WishlistPage'
 import QuizPage from '@/pages/QuizPage'
 import BundlePage from '@/pages/BundlePage'
+import NotFoundPage from '@/pages/NotFoundPage'
 
 // Admin pages
 import AdminLoginPage from '@/pages/admin/LoginPage'
@@ -53,36 +55,37 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<SiteLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/:slug" element={<ProductDetailPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/quiz" element={<QuizPage />} />
-          <Route path="/bundle" element={<BundlePage />} />
-        </Route>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<SiteLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:slug" element={<ProductDetailPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/bundle" element={<BundlePage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
 
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
-          <Route index element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="dashboard" element={<AdminDashboardPage />} />
-          <Route path="products" element={<AdminProductsPage />} />
-          <Route path="products/new" element={<AdminProductFormPage />} />
-          <Route path="products/:id" element={<AdminProductFormPage />} />
-          <Route path="gallery" element={<AdminGalleryPage />} />
-          <Route path="hero" element={<AdminHeroPage />} />
-          <Route path="inquiries" element={<AdminInquiriesPage />} />
-          <Route path="branches" element={<AdminBranchesPage />} />
-          <Route path="testimonials" element={<AdminTestimonialsPage />} />
-        </Route>
-
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+            <Route index element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboardPage />} />
+            <Route path="products" element={<AdminProductsPage />} />
+            <Route path="products/new" element={<AdminProductFormPage />} />
+            <Route path="products/:id" element={<AdminProductFormPage />} />
+            <Route path="gallery" element={<AdminGalleryPage />} />
+            <Route path="hero" element={<AdminHeroPage />} />
+            <Route path="inquiries" element={<AdminInquiriesPage />} />
+            <Route path="branches" element={<AdminBranchesPage />} />
+            <Route path="testimonials" element={<AdminTestimonialsPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }

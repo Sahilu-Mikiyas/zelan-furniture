@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { ShieldCheck, Truck, Palette, Headphones } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -10,6 +11,11 @@ const values = [
 
 export default function AboutPage() {
   return (
+    <>
+      <Helmet>
+        <title>About Us — Zelan Furniture</title>
+        <meta name="description" content="Learn about Zelan Furniture — premium furniture with 4 showrooms across Addis Ababa, Ethiopia." />
+      </Helmet>
     <div className="min-h-screen bg-white pt-20">
       {/* Hero */}
       <section className="bg-gradient-to-br from-stone-900 to-amber-950 text-white py-20">
@@ -91,5 +97,6 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

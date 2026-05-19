@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
@@ -52,6 +53,11 @@ export default function ProductsPage() {
   const activeFilters = [category, priceTier, status, styleTag].filter(Boolean).length
 
   return (
+    <>
+      <Helmet>
+        <title>Products — Zelan Furniture</title>
+        <meta name="description" content="Browse our full collection of premium bedroom, living room, dining, office and storage furniture in Addis Ababa." />
+      </Helmet>
     <div className="min-h-screen bg-stone-50 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-8">
@@ -139,5 +145,6 @@ export default function ProductsPage() {
         )}
       </div>
     </div>
+    </>
   )
 }

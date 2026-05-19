@@ -1,5 +1,6 @@
 
 
+import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Phone, MapPin, Clock, Send } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
@@ -33,6 +34,11 @@ export default function ContactPage() {
   }
 
   return (
+    <>
+      <Helmet>
+        <title>Contact Us — Zelan Furniture</title>
+        <meta name="description" content="Visit any of our 4 showrooms in Addis Ababa or send us a message. We're happy to help you find the perfect furniture." />
+      </Helmet>
     <div className="min-h-screen bg-stone-50 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
@@ -140,5 +146,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const collections = [
   {
@@ -35,15 +36,27 @@ export default function FeaturedCollections() {
   return (
     <section className="py-20 bg-stone-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-3">Featured Collections</h2>
           <p className="text-stone-500">Curated selections for the modern Ethiopian home</p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {collections.map(col => (
-            <div key={col.title} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group">
-              {/* Card header */}
+          {collections.map((col, i) => (
+            <motion.div
+              key={col.title}
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
               <div className={`${col.bg} p-8 relative overflow-hidden`}>
                 <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
                   {col.subtitle}
@@ -51,7 +64,6 @@ export default function FeaturedCollections() {
                 <div className="text-6xl mb-2">{col.icon}</div>
                 <div className="absolute -bottom-4 -right-4 text-[120px] opacity-10">{col.icon}</div>
               </div>
-              {/* Card body */}
               <div className="p-6">
                 <h3 className="text-lg font-bold text-stone-900 mb-2">{col.title}</h3>
                 <p className="text-stone-500 text-sm mb-4 leading-relaxed">{col.description}</p>
@@ -70,7 +82,7 @@ export default function FeaturedCollections() {
                   Shop Now <ArrowRight size={15} />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
